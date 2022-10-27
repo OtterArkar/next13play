@@ -10,7 +10,7 @@ const DetailPosts = async ({ params }: any) => {
   ).then((res) => res.json());
   return (
     <div>
-      <h1 className="text-xl mb-4">{data.title}</h1>
+      <h1 className="mb-4 text-xl">{data.title}</h1>
       <p className="text-gray-600">{data.body}</p>
     </div>
   );

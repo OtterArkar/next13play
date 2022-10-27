@@ -9,7 +9,7 @@ interface POSTS {
   children: React.ReactNode;
 }
 
-const PostLayout = async ({ children }: POSTS) => {
+const RootLayout = async ({ children }: POSTS) => {
   const data: MOVIE[] = await fetch(
     "https://jsonplaceholder.typicode.com/posts"
   ).then((res) => res.json());
@@ -22,17 +22,17 @@ const PostLayout = async ({ children }: POSTS) => {
             href={`/posts/${post.id}`}
             key={post.id}
             tabIndex={post.id}
-            className="border border-gray-800 p-4 rounded-md  cursor-pointer block hover:border-gray-600"
+            className="block p-4 border border-gray-800 rounded-md cursor-pointer hover:border-gray-600"
           >
             <h2 className="text-gray-100">{post.title}</h2>
           </Link>
         ))}
       </div>
 
-      <div className=" h-max border p-4 border-gray-700 rounded-md ">
+      <div className="p-4 border border-gray-700 rounded-md h-max">
         {children}
       </div>
     </div>
   );
 };
-export default PostLayout;
+export default RootLayout;
